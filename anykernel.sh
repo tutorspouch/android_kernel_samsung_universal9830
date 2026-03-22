@@ -4,7 +4,7 @@
 ### AnyKernel setup
 # global properties
 properties() { '
-kernel.string=z3s KernelSU SUSFS
+kernel.string=z3s KernelSU SUSFS NFS
 do.devicecheck=1
 do.modules=0
 do.systemless=1

@@ -78,6 +78,10 @@ void ksu_apply_kernelsu_rules()
 	ksu_allow(db, "kernel", "shell_data_file", "file", ALL);
 	// we need to read /data/system/packages.list
 	ksu_allow(db, "kernel", "kernel", "capability", "dac_override");
+	// Allow NFS client to bind to reserved ports
+	ksu_allow(db, "kernel", "kernel", "capability", "net_bind_service");
+	// Allow file creation on NFS (unlabeled) filesystems
+	ksu_allow(db, "unlabeled", "unlabeled", "filesystem", "associate");
 	// Android 10+:
 	// http://aospxref.com/android-12.0.0_r3/xref/system/sepolicy/private/file_contexts#512
 	ksu_allow(db, "kernel", "packages_list_file", "file", ALL);
